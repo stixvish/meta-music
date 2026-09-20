@@ -1,0 +1,3 @@
+# toml configuration file for taplo
+[schema]
+enabled = false

@@ -1,0 +1,49 @@
+[project]
+name = "meta-music"
+version = "0.1.0"
+description = "automatic music metadata tagger for use with rekordbox/serato/ipod"
+readme = "README.md"
+authors = [
+  { name = "vishesh", email = "64042847+stixvish@users.noreply.github.com" },
+]
+requires-python = ">=3.14"
+dependencies = [
+  "fastapi>=0.141.1",
+  "pydantic>=2.13.5",
+  "sqlmodel>=0.0.42",
+  "uvicorn>=0.53.0",
+]
+
+[project.scripts]
+music-backend = "meta_music:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+  "commitizen>=4.18.1",
+  "mypy>=2.3.1",
+  "pre-commit>=4.6.2",
+  "pytest>=9.1.1",
+  "pytest-cov>=7.1.0",
+  "ruff>=0.16.8",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 80
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "D", "N"]
+ignore = ["D415", "D403"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.ruff.format]
+quote-style = "single"
